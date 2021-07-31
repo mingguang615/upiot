@@ -1,0 +1,23 @@
+## 亮讯接口调用说明
+
+## Usage
+
+```
+func main(){
+    client := NewClient("123", "AAAAAAAAAA")
+        urls := url.Values{
+            "key1": []string{"value1"},
+            "key2": []string{"value"},
+        }
+        sign := client.sign(urls)
+        log.Println(sign)
+}
+```
+
+## API 文档
+
+[API 文档](http://ec.upiot.net/api_doc/#_%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E8%AF%B4%E6%98%8E) 是上海亮讯物联卡平台接口文档
+
+## 申请API key / secret
+### 申请说明
+- 在新版本API接口中，将脱离原先获取token的认证模式，使用基于API_KEY和API_SECRET的API认证。用户首先需要在 [物联卡管理平台](http://ec.upiot.net/login/)上申请自己的API_KEY和API_SECRET.
