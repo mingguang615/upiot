@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"time"
 )
@@ -48,7 +47,6 @@ func (resp *Response) parse(data interface{}) error {
 }
 
 func get(url string) (*Response, error) {
-	log.Println(url)
 	cli := &http.Client{Timeout: time.Second * 30}
 	res, err := cli.Get(url)
 	if err != nil {
@@ -60,7 +58,6 @@ func get(url string) (*Response, error) {
 	if err != nil {
 		return nil, err
 	}
-	log.Println(string(body))
 	resp2 := &Response{}
 	if err := json.Unmarshal(body, &resp2); err != nil {
 		return nil, err
@@ -82,7 +79,6 @@ func post(url string, reqBS []byte) (*Response, error) {
 		return nil, err
 	}
 
-	log.Println(string(body))
 	resp2 := &Response{}
 	if err := json.Unmarshal(body, &resp2); err != nil {
 		return nil, err
