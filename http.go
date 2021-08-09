@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -55,7 +56,7 @@ func get(url string) (*Response, error) {
 	}
 	defer res.Body.Close()
 
-	body, err := ioutil.ReadAll(res.Body)
+	body, err := ioutil.ReadAll(io.LimitReader(res.Body, 5<<20))
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +77,7 @@ func post(url string, reqBS []byte) (*Response, error) {
 	}
 	defer res.Body.Close()
 
-	body, err := ioutil.ReadAll(res.Body)
+	body, err := ioutil.ReadAll(io.LimitReader(res.Body, 5<<20))
 	if err != nil {
 		return nil, err
 	}
