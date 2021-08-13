@@ -5,12 +5,14 @@
 ```
 func main(){
     client := NewClient("123", "AAAAAAAAAA")
-        urls := url.Values{
-            "key1": []string{"value1"},
-            "key2": []string{"value"},
-        }
-        sign := client.sign(urls)
-        log.Println(sign)
+    resp, err := client.GetCardUsageInfo(&ReqCardUsageInfo{
+    		Msisdns: []string{"89860412102090029371"},
+    		Month:   "202107",
+    	})
+    if err != nil {
+        log.Fatal(err)
+    }
+    log.Println(resp)
 }
 ```
 
