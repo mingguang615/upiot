@@ -3,6 +3,11 @@
 ## Usage
 
 ```
+go get github.com/mingguang615/upiot
+```
+
+## Example
+```
 func main(){
     client := NewClient("123", "AAAAAAAAAA")
     resp, err := client.GetCardUsageInfo(&ReqCardUsageInfo{
