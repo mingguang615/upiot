@@ -32,15 +32,15 @@ type RespCardInfo struct {
 
 type RespCardNoList struct {
 	Rows []struct {
-		Msisdn string
-		Iccid  string
-		Imsi   string
-		Imsi2  string
-		Imei   string
-	}
-	Page     int64
-	PerPage  int64
-	NumPages int64
+		Msisdn string `json:"msisdn"`
+		Iccid  string `json:"iccid"`
+		Imsi   string `json:"imsi"`
+		Imsi2  string `json:"imsi2"`
+		Imei   string `json:"imei"`
+	} `json:"rows"`
+	Page     int64 `json:"page"`
+	PerPage  int64 `json:"per_page"`
+	NumPages int64 `json:"num_pages"`
 }
 
 type RespCardUsageInfo struct {
