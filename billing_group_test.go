@@ -6,7 +6,7 @@ import (
 )
 
 func TestClient_GetBillingGroup(t *testing.T) {
-	resp, err := client.GetBillingGroup()
+	resp, err := cli.GetBillingGroup()
 	if err != nil {
 		log.Fatal(err.Error())
 	}

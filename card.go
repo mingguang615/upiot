@@ -113,7 +113,7 @@ bg_code string  //可选，无此参数返回账户内所有的卡，否则返�
 page    int //可选  请求的第几页，可选，默认为第1页
 per_page int // 可选 每页显示数量，可选，默认每页显示100张
 */
-func (c Client) GetCardNoList(param url.Values) (*RespCardNoList, error) {
+func (c client) GetCardNoList(param url.Values) (*RespCardNoList, error) {
 	resp := new(RespCardNoList)
 	err := c.get(c.url()+"/card_no_list", param, resp)
 	if err != nil {
@@ -123,7 +123,7 @@ func (c Client) GetCardNoList(param url.Values) (*RespCardNoList, error) {
 }
 
 //获取卡信息 id可为 msisdn|iccid|imsi
-func (c Client) GetCardInfo(id string) (*RespCardInfo, error) {
+func (c client) GetCardInfo(id string) (*RespCardInfo, error) {
 	resp := new(RespCardInfo)
 	err := c.get(c.url()+"/card/"+id+"/", nil, resp)
 	if err != nil {
@@ -133,7 +133,7 @@ func (c Client) GetCardInfo(id string) (*RespCardInfo, error) {
 }
 
 //获取卡流量使用信息
-func (c Client) GetCardUsageInfo(req *ReqCardUsageInfo) (*RespCardUsageInfo, error) {
+func (c client) GetCardUsageInfo(req *ReqCardUsageInfo) (*RespCardUsageInfo, error) {
 	resp := new(RespCardUsageInfo)
 	err := c.post(c.url()+"/card_usage_info/", req, resp)
 	if err != nil {
@@ -150,7 +150,7 @@ per_page int// 可选 每页显示数量， 默认每页显示1000张
 month int //查询月份，默认返回当月数据
 */
 //计费组物联卡月流量日志
-func (c Client) GetCardMonthlyUsageLog(param url.Values) (*RespCardMonthlyUsageLog, error) {
+func (c client) GetCardMonthlyUsageLog(param url.Values) (*RespCardMonthlyUsageLog, error) {
 	resp := new(RespCardMonthlyUsageLog)
 	err := c.get(c.url()+"/card/monthly_usagelog/", param, resp)
 	if err != nil {
@@ -167,7 +167,7 @@ per_page int// 可选 每页显示数量， 默认每页显示1000张
 month int //查询月份，默认返回当月数据
 */
 //计费组物联卡月短信日志
-func (c Client) GetCardMonthlySms(param url.Values) (*RespCardMonthlySmsLog, error) {
+func (c client) GetCardMonthlySms(param url.Values) (*RespCardMonthlySmsLog, error) {
 	resp := new(RespCardMonthlySmsLog)
 	err := c.get(c.url()+"/card/monthly_sms/", param, resp)
 	if err != nil {
@@ -176,7 +176,7 @@ func (c Client) GetCardMonthlySms(param url.Values) (*RespCardMonthlySmsLog, err
 	return resp, nil
 }
 
-func (c Client) GetCardLocate(id string) (*RespCardLocate, error) {
+func (c client) GetCardLocate(id string) (*RespCardLocate, error) {
 	if len(id) == 0 {
 		return nil, errors.New("ID cannot be empty")
 	}

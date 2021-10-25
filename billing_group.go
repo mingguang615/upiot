@@ -9,7 +9,7 @@ type RespBillingGroup struct {
 	}
 }
 
-func (c Client) GetBillingGroup() (*RespBillingGroup, error) {
+func (c client) GetBillingGroup() (*RespBillingGroup, error) {
 	resp := new(RespBillingGroup)
 	err := c.get(c.url()+"/billing_group/", nil, resp)
 	if err != nil {

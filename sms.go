@@ -14,7 +14,7 @@ type ReqSms struct {
 	Binary  bool     `json:"binary"`
 }
 
-func (c Client) SendSms(req *ReqSms) (*RespSms, error) {
+func (c client) SendSms(req *ReqSms) (*RespSms, error) {
 	resp := new(RespSms)
 	err := c.post(c.url()+"/sms/", req, resp)
 	if err != nil {

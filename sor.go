@@ -9,7 +9,7 @@ type ReqSor struct {
 }
 
 //设置停复机
-func (c Client) SetSor(req *ReqSor) (*Response, error) {
+func (c client) SetSor(req *ReqSor) (*Response, error) {
 	resp := new(Response)
 	err := c.post(c.url()+"/sor/", req, resp)
 	if err != nil {

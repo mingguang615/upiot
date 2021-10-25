@@ -6,7 +6,7 @@ import (
 )
 
 func TestClient_SendSms(t *testing.T) {
-	resp, err := client.SendSms(&ReqSms{
+	resp, err := cli.SendSms(&ReqSms{
 		Msisdns: []string{"aaa"},
 		Content: "bbb",
 	})

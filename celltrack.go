@@ -21,13 +21,13 @@ type RespCellTrack struct {
 
 //curl http://ec.upiot.net/api/v2/9516a58d24cd6b76382f27c8ab4292b0151b2702/celltrack/?_sign=c28270f9eb6a22d3563800e7af461a4b\&bs=460,01,40977,2205409
 //bs参数： GSM/UMTS: MCC,MNC,LAC,CI 或 MCC,MNC,LAC,CI,dBm LTE: MCC,MNC,TAC,CI 或 MCC,MNC,TAC,CI,dBm CDMA: MCC,SID,NID,BID 或 MCC,MNC,TAC,CI,dBm 多基站分隔符号: |
-func (c Client) GetCellTrack(bs string) (*RespCellTrack, error) {
+func (c client) GetCellTrack(bs string) (*RespCellTrack, error) {
 	resp := new(RespCellTrack)
 	param := url.Values{
 		"bs": []string{bs},
 	}
 	err := c.get(c.url()+"/celltrack/", param, resp)
-	if err != nil{
+	if err != nil {
 		return nil, err
 	}
 	return resp, nil

@@ -1,7 +1,6 @@
 package upiot
 
 import (
-	"log"
 	"net/url"
 	"testing"
 )
@@ -11,6 +10,6 @@ func TestSign(t *testing.T) {
 		"key1": []string{"value1"},
 		"key2": []string{"value"},
 	}
-	sign := client.sign(urls)
-	log.Println(sign)
+	sign := cli.sign(urls)
+	t.Log(sign)
 }

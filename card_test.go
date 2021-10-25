@@ -11,10 +11,10 @@ const (
 	api_secret = "bbbbbbbbbbbbbbb"
 )
 
-var client = NewClient(api_key, api_secret)
+var cli = NewClient(api_key, api_secret)
 
 func TestClient_GetCardNoList(t *testing.T) {
-	resp, err := client.GetCardNoList(url.Values{
+	resp, err := cli.GetCardNoList(url.Values{
 		"bg_code":  []string{"test"},
 		"page":     []string{"1"},
 		"per_page": []string{"100"},
@@ -26,7 +26,7 @@ func TestClient_GetCardNoList(t *testing.T) {
 }
 
 func TestClient_GetCardInfo(t *testing.T) {
-	resp, err := client.GetCardInfo("10648xxxx1234")
+	resp, err := cli.GetCardInfo("10648xxxx1234")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -34,7 +34,7 @@ func TestClient_GetCardInfo(t *testing.T) {
 }
 
 func TestClient_GetCardUsageInfo(t *testing.T) {
-	resp, err := client.GetCardUsageInfo(&ReqCardUsageInfo{
+	resp, err := cli.GetCardUsageInfo(&ReqCardUsageInfo{
 		Msisdns: []string{"89860412102090029371"},
 		Month:   "202107",
 	})
@@ -45,7 +45,7 @@ func TestClient_GetCardUsageInfo(t *testing.T) {
 }
 
 func TestClient_GetCardMonthlyUsageLog(t *testing.T) {
-	resp, err := client.GetCardMonthlyUsageLog(url.Values{
+	resp, err := cli.GetCardMonthlyUsageLog(url.Values{
 		"bg_code":  []string{"1SHFD030M21"},
 		"page":     []string{"1"},
 		"per_page": []string{"1000"},
@@ -58,7 +58,7 @@ func TestClient_GetCardMonthlyUsageLog(t *testing.T) {
 }
 
 func TestClient_GetCardMonthlySms(t *testing.T) {
-	resp, err := client.GetCardMonthlySms(url.Values{
+	resp, err := cli.GetCardMonthlySms(url.Values{
 		"bg_code":  []string{"1SHFD030M21"},
 		"page":     []string{"1"},
 		"per_page": []string{"1000"},
@@ -71,7 +71,7 @@ func TestClient_GetCardMonthlySms(t *testing.T) {
 }
 
 func TestClient_GetCardLocate(t *testing.T) {
-	resp, err := client.GetCardLocate("89860412102090029371")
+	resp, err := cli.GetCardLocate("89860412102090029371")
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -14,7 +14,7 @@ func md5Hex(data string) string {
 	return hex.EncodeToString(h.Sum(nil))
 }
 
-func (c Client) sign(param url.Values) string {
+func (c client) sign(param url.Values) string {
 	keys := make([]string, 0)
 	for key, _ := range param {
 		keys = append(keys, key)

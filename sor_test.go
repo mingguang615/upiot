@@ -6,7 +6,7 @@ import (
 )
 
 func TestClient_SetSor(t *testing.T) {
-	resp, err := client.SetSor(&ReqSor{
+	resp, err := cli.SetSor(&ReqSor{
 		Number: "aaa",
 		Type:   "00",
 	})

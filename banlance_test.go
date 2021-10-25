@@ -6,7 +6,7 @@ import (
 )
 
 func TestClient_GetBalance(t *testing.T) {
-	resp, err := client.GetBalance()
+	resp, err := cli.GetBalance()
 	if err != nil {
 		log.Fatal(err)
 	}
